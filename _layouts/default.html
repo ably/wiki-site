@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: " en " }}">
+
+{%- include head.html -%}
+
+<body>
+  {%- include header.html -%}
+  <div id="index-box">
+    <div class="search-pages">
+      <input type="text" id="search-input" placeholder="search..." onkeyup="showSearchResults()" />
+    </div>
+    <ul id="results-container">
+   </ul>
+    <ul id="index">
+      {% assign sortedlist = site.html_pages | sort_natural: 'url' %}
+      {% for page in sortedlist %}
+      {% if page.url == "/" %}
+        <li><a href="{{ page.url }}">Home</a></li>
+      {% elsif page.url contains "pages/" %}
+        <li><a href="{{ page.url }}">{{ page.url | replace: '/', ' ' | split:' ' | last | replace: '-', ' '  | remove: '.html' }}</a></li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <h1>{{ page.url | replace: '/', ' ' | split:' ' | last | replace: '-', ' '  | remove: '.html' }}</h1>
+      <br>
+      {{ content }}
+    </div>
+  </main>
+
+  {%- include footer.html -%}
+
+
+  <script>
+    window.simpleJekyllSearch = new SimpleJekyllSearch({
+      searchInput: document.getElementById('search-input'),
+      resultsContainer: document.getElementById('results-container'),
+      json: '{{ site.baseurl }}/search.json',
+      searchResultTemplate: '<li><a href={url}>{title}</a></li>',
+      noResultsText: 'No results found.',
+      fuzzy: false,
+      limit: 100,
+      exclude: ['Welcome']
+    })
+  </script>
+
+
+  <script>
+    function showSearchResults() {
+      if(document.getElementById("search-input").value == "") {
+        document.getElementById("index").style.display  = "block";
+        document.getElementById("results-container").style.display  = "none";
+      } else {
+        document.getElementById("index").style.display = "none";
+        document.getElementById("results-container").style.display = "block";
+      }
+    }
+  </script>
+</body>
+
+</html>

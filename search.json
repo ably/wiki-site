@@ -1,0 +1,15 @@
+---
+layout: null
+---
+[{% assign sortedlist = site.html_pages | sort_natural: 'url' %}{% for page in sortedlist %}{% if page.url == "/" %}
+   {
+     "url"    : "{{ page.url }}",
+     "title"  : "Home",
+     "content": "{{ page.content | strip_html | strip_newlines | remove_chars | escape }}"
+   }{% unless forloop.last %},{% endunless %} {% elsif page.url contains "pages/" %}
+   {
+   	 "url"    : "{{ page.url }}",
+     "title"  : "{{ page.url | replace: '/', ' ' | split:' ' | last | replace: '-', ' '  | remove: '.html'}}",
+     "content": "{{ page.content | strip_html | strip_newlines | remove_chars | escape }}"
+   }{% unless forloop.last %},{% endunless %}{% endif %}{% endfor %}
+]

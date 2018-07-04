@@ -1,0 +1,40 @@
+{
+  "name": "wiki",
+  "description": "",
+  "scripts": {},
+  "env": {
+    "LANG": {
+      "required": true
+    },
+    "CLIENT_ID": {
+      "required": true
+    },
+    "CLIENT_SECRET": {
+      "required": true
+    },
+    "CLIENT_DOMAIN": {
+      "required": true
+    },
+    "SESSION_SECRET": {
+      "generator": "secret"
+    }
+  },
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "bundle exec rake"
+      }
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-ruby.git"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+title: Wiki
+email: hello@world.com
+description: >- # this means to ignore newlines until "baseurl:"
+  Wiki for all fun things
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+markdown: redcarpet
+theme: minima
+
+redcarpet:
+  extensions: ["no_intra_emphasis", "tables", "autolink", "strikethrough", "highlight", "with_toc_data"]
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+exclude:
+  - vendor
