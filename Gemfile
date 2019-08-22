@@ -4,6 +4,8 @@ ruby File.read(File.expand_path("../.ruby-version", __FILE__)).strip
 
 gem "jekyll", "~> 3.7.3"
 
+gem "nokogiri", ">= 1.10.4"
+
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 gem "minima", "~> 2.0"
 
