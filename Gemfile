@@ -21,7 +21,7 @@ gem "thin", "~> 1.7"
 gem "omniauth-auth0", "~> 2.0"
 gem "dotenv", "~> 2.2"
 
-gem "redcarpet", "~> 3.4"
+gem "redcarpet", "~> 3.5"
 
 # If you have any plugins, put them here!
 group :jekyll_plugins do
