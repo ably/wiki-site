@@ -15,7 +15,7 @@ gem "html-proofer"
 # Needed for static site building in Heroku
 gem "rake", "~> 12.3"
 
-gem "sinatra", "~> 2.0.2"
+gem "sinatra", "~> 2.2.3"
 gem "thin", "~> 1.7"
 
 gem "omniauth-auth0", "~> 2.0"
